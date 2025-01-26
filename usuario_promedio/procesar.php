@@ -22,9 +22,9 @@ $medicamentos = [
 ];
 
 // Obtener datos del formulario
-$sintoma = $_GET['sintoma'];
-$edad = (int)$_GET['edad'];
-$restricciones = strtolower($_GET['restricciones']);
+$sintoma = $_POST['sintoma'];
+$edad = (int)$_POST['edad'];
+$restricciones = strtolower($_POST['restricciones']);
 
 // Determinar grupo etario
 if ($edad >= 18) {
