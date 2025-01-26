@@ -4,13 +4,13 @@ $medicamentos = [
     "Uno" => [
         "mayores" => ["paracetamol 500mg", "paracetamol 1000mg"],
         "menores" => ["ibuprofeno pediátrico"],
-<<<<<<< HEAD
+
         "sin_restriccion" => ["ibuprofeno pediátrico","paracetamol 500mg", "paracetamol 1000mg"],
-        "con_restriccion" => ["paracetamol 500mg",""]
-=======
+        "con_restriccion" => ["paracetamol 500mg",""],
+
         "sin_restriccion" => ["ibuprofeno pediátrico", "paracetamol 500mg", "paracetamol 1000mg"],
         "con_restriccion" => ["paracetamol 500mg", ""]
->>>>>>> Mensaje
+
     ],
     "Dos" => [
         "mayores" => ["benzocaina", "ibuprofeno"],
@@ -58,7 +58,7 @@ $medicamentos_texto = implode(" y ", $recomendados);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recomendación</title>
-<<<<<<< HEAD
+
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -83,7 +83,7 @@ $medicamentos_texto = implode(" y ", $recomendados);
         <p>No se encontraron medicamentos recomendados para tu caso.</p>
     <?php endif; ?>
     <a href="index.html">Volver</a>
-=======
+
     <link rel="stylesheet" href="../usuario_deficiencia_visual_motriz/estilos.css">
 </head>
 <body>
@@ -108,6 +108,6 @@ $medicamentos_texto = implode(" y ", $recomendados);
         // Leer la recomendación final
         speakText("Recomendación procesada. " + document.querySelector('p').textContent);
     </script>
->>>>>>> Mensaje
+
 </body>
 </html>

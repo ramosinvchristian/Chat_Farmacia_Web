@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /* Fondo con gradiente dinámico */
 .background {
     height: 100vh;
@@ -94,7 +94,7 @@
     .card-img-top {
         height: 150px;
     }
-=======
+
 /* Contenedor */
 .container {
     background-color: #f5f5f5;
@@ -163,5 +163,6 @@ p {
 i {
     margin-right: 5px;
     color: #007777;
->>>>>>> Mensaje
+
+}
 }
