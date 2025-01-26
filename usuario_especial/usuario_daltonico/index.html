@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Recomendación de Medicamentos</title>
+<<<<<<< HEAD
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -50,11 +51,18 @@
             background-color: #4cae4c;
         }
     </style>
+=======
+    <link rel="stylesheet" href="../usuario_daltonico/estilos.css">
+>>>>>>> Mensaje
 </head>
 <body>
     <div class="container">
         <h1>Sistema de Recomendación</h1>
         <form action="procesar.php" method="POST">
+<<<<<<< HEAD
+=======
+            <!-- Pregunta sobre el síntoma -->
+>>>>>>> Mensaje
             <label for="sintoma">¿Qué síntoma tienes?</label>
             <select name="sintoma" id="sintoma" required>
                 <option value="Uno">Dolor de cabeza</option>
@@ -62,15 +70,27 @@
                 <option value="Tres">Dolor de espalda</option>
             </select>
 
+<<<<<<< HEAD
             <label for="edad">¿Cuántos años tienes?</label>
             <input type="number" name="edad" id="edad" min="1" max="120" required>
 
+=======
+            <!-- Pregunta sobre la edad -->
+            <label for="edad">¿Cuántos años tienes?</label>
+            <input type="number" name="edad" id="edad" min="1" max="120" required>
+
+            <!-- Pregunta sobre restricciones médicas -->
+>>>>>>> Mensaje
             <label for="restricciones">¿Tienes restricciones médicas? (Sí o No)</label>
             <select name="restricciones" id="restricciones" required>
                 <option value="no">No</option>
                 <option value="sí">Sí</option>
             </select>
 
+<<<<<<< HEAD
+=======
+            <!-- Botón de enviar -->
+>>>>>>> Mensaje
             <button type="submit">Recomendar Medicamento</button>
         </form>
     </div>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Recomendación de Medicamentos</title>
+<<<<<<< HEAD
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -56,23 +57,112 @@
         <h1>Sistema de Recomendación</h1>
         <form action="procesar.php" method="POST">
             <label for="sintoma">¿Qué síntoma tienes?</label>
+=======
+    <link rel="stylesheet" href="../usuario_deficiencia_visual_motriz/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-pills" aria-hidden="true"></i> Sistema de Recomendación</h1>
+        <form action="procesar.php" method="POST" id="form">
+            <!-- Pregunta sobre el síntoma -->
+            <label for="sintoma"><i class="fas fa-heartbeat" aria-hidden="true"></i> ¿Qué síntoma tienes?</label>
+>>>>>>> Mensaje
             <select name="sintoma" id="sintoma" required>
                 <option value="Uno">Dolor de cabeza</option>
                 <option value="Dos">Dolor de garganta</option>
                 <option value="Tres">Dolor de espalda</option>
             </select>
 
+<<<<<<< HEAD
             <label for="edad">¿Cuántos años tienes?</label>
             <input type="number" name="edad" id="edad" min="1" max="120" required>
 
             <label for="restricciones">¿Tienes restricciones médicas? (Sí o No)</label>
+=======
+            <!-- Pregunta sobre la edad -->
+            <label for="edad"><i class="fas fa-user" aria-hidden="true"></i> ¿Cuántos años tienes?</label>
+            <input type="number" name="edad" id="edad" min="1" max="120" required>
+
+            <!-- Pregunta sobre restricciones médicas -->
+            <label for="restricciones"><i class="fas fa-notes-medical" aria-hidden="true"></i> ¿Tienes restricciones médicas?</label>
+>>>>>>> Mensaje
             <select name="restricciones" id="restricciones" required>
                 <option value="no">No</option>
                 <option value="sí">Sí</option>
             </select>
 
+<<<<<<< HEAD
             <button type="submit">Recomendar Medicamento</button>
         </form>
     </div>
+=======
+            <!-- Botón de enviar -->
+            <button type="submit" aria-label="Enviar para obtener la recomendación de medicamento"><i class="fas fa-search" aria-hidden="true"></i> Recomendar Medicamento</button>
+        </form>
+    </div>
+
+    <!-- Script de reconocimiento de voz -->
+    <script>
+        // Iniciar el reconocimiento de voz
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = 'es-ES';
+        recognition.continuous = true;
+        
+        // Iniciar reconocimiento de voz
+        function startRecognition() {
+            recognition.start();
+            console.log("Reconocimiento de voz iniciado");
+        }
+
+        // Detener reconocimiento de voz
+        function stopRecognition() {
+            recognition.stop();
+            console.log("Reconocimiento de voz detenido");
+        }
+
+        // Leer texto en voz alta
+        function speakText(text) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = "es-ES";
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Agregar evento de voz para seleccionar opciones de los menús
+        recognition.onresult = function(event) {
+            let transcript = event.results[event.results.length - 1][0].transcript.toLowerCase();
+
+            if (transcript.includes("dolor de cabeza")) {
+                document.getElementById("sintoma").value = "Uno";
+                speakText("Has seleccionado dolor de cabeza.");
+            } else if (transcript.includes("dolor de garganta")) {
+                document.getElementById("sintoma").value = "Dos";
+                speakText("Has seleccionado dolor de garganta.");
+            } else if (transcript.includes("dolor de espalda")) {
+                document.getElementById("sintoma").value = "Tres";
+                speakText("Has seleccionado dolor de espalda.");
+            }
+
+            if (transcript.includes("sí")) {
+                document.getElementById("restricciones").value = "sí";
+                speakText("Has indicado que tienes restricciones médicas.");
+            } else if (transcript.includes("no")) {
+                document.getElementById("restricciones").value = "no";
+                speakText("Has indicado que no tienes restricciones médicas.");
+            }
+
+            if (transcript.includes("enviar") || transcript.includes("recomendar")) {
+                document.getElementById("form").submit();
+                speakText("Formulario enviado. Recibiendo tu recomendación.");
+            }
+        };
+
+        // Iniciar el reconocimiento cuando se hace click en el botón de iniciar
+        window.onload = () => {
+            speakText("Bienvenido al sistema de recomendación de medicamentos. Por favor, diga el síntoma.");
+            startRecognition();
+        };
+    </script>
+>>>>>>> Mensaje
 </body>
 </html>

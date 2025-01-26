@@ -4,8 +4,13 @@ $medicamentos = [
     "Uno" => [
         "mayores" => ["paracetamol 500mg", "paracetamol 1000mg"],
         "menores" => ["ibuprofeno pediátrico"],
+<<<<<<< HEAD
         "sin_restriccion" => ["ibuprofeno pediátrico","paracetamol 500mg", "paracetamol 1000mg"],
         "con_restriccion" => ["paracetamol 500mg",""]
+=======
+        "sin_restriccion" => ["ibuprofeno pediátrico", "paracetamol 500mg", "paracetamol 1000mg"],
+        "con_restriccion" => ["paracetamol 500mg", ""]
+>>>>>>> Mensaje
     ],
     "Dos" => [
         "mayores" => ["benzocaina", "ibuprofeno"],
@@ -53,6 +58,7 @@ $medicamentos_texto = implode(" y ", $recomendados);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recomendación</title>
+<<<<<<< HEAD
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -77,5 +83,31 @@ $medicamentos_texto = implode(" y ", $recomendados);
         <p>No se encontraron medicamentos recomendados para tu caso.</p>
     <?php endif; ?>
     <a href="index.html">Volver</a>
+=======
+    <link rel="stylesheet" href="../usuario_deficiencia_visual_motriz/estilos.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Recomendación de Medicamentos</h1>
+        <?php if (!empty($recomendados)): ?>
+            <p><strong>Medicamentos recomendados para el síntoma:</strong> <?= htmlspecialchars($sintoma) ?>: <?= htmlspecialchars($medicamentos_texto) ?>.</p>
+        <?php else: ?>
+            <p><strong>No se encontraron medicamentos recomendados para tu caso.</strong></p>
+        <?php endif; ?>
+        <a href="index.html" class="btn">Volver</a>
+    </div>
+
+    <script>
+        // Función para leer el texto en voz alta
+        function speakText(text) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = "es-ES";
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Leer la recomendación final
+        speakText("Recomendación procesada. " + document.querySelector('p').textContent);
+    </script>
+>>>>>>> Mensaje
 </body>
 </html>

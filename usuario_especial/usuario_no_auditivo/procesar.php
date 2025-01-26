@@ -53,6 +53,7 @@ $medicamentos_texto = implode(" y ", $recomendados);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recomendación</title>
+<<<<<<< HEAD
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -77,5 +78,20 @@ $medicamentos_texto = implode(" y ", $recomendados);
         <p>No se encontraron medicamentos recomendados para tu caso.</p>
     <?php endif; ?>
     <a href="index.html">Volver</a>
+=======
+    <link rel="stylesheet" href="../usuario_deficiencia_auditiva/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-notes-medical"></i> Recomendación de Medicamentos</h1>
+        <?php if (!empty($recomendados)): ?>
+            <p><i class="fas fa-check-circle"></i> Medicamentos recomendados para el síntoma <strong><?= htmlspecialchars($sintoma) ?></strong>: <?= htmlspecialchars($medicamentos_texto) ?>.</p>
+        <?php else: ?>
+            <p><i class="fas fa-times-circle"></i> No se encontraron medicamentos recomendados para tu caso.</p>
+        <?php endif; ?>
+        <a href="index.html" class="btn"><i class="fas fa-arrow-left"></i> Volver</a>
+    </div>
+>>>>>>> Mensaje
 </body>
 </html>

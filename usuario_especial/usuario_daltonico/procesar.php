@@ -53,6 +53,7 @@ $medicamentos_texto = implode(" y ", $recomendados);
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Recomendación</title>
+<<<<<<< HEAD
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -77,5 +78,19 @@ $medicamentos_texto = implode(" y ", $recomendados);
         <p>No se encontraron medicamentos recomendados para tu caso.</p>
     <?php endif; ?>
     <a href="index.html">Volver</a>
+=======
+    <link rel="stylesheet" href="../usuario_daltonico/estilos.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Recomendación de Medicamentos</h1>
+        <?php if (!empty($recomendados)): ?>
+            <p>Medicamentos recomendados para el síntoma <strong><?= htmlspecialchars($sintoma) ?></strong>: <?= htmlspecialchars($medicamentos_texto) ?>.</p>
+        <?php else: ?>
+            <p>No se encontraron medicamentos recomendados para tu caso.</p>
+        <?php endif; ?>
+        <a href="index.html" class="btn">Volver</a>
+    </div>
+>>>>>>> Mensaje
 </body>
 </html>

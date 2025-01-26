@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /* Fondo con gradiente dinámico */
 .background {
     height: 100vh;
@@ -92,5 +93,90 @@
 @media (max-width: 768px) {
     .card-img-top {
         height: 150px;
+=======
+/* Fondo con gradiente accesible */
+.background {
+    height: 100vh;
+    width: 100%;
+    background: linear-gradient(135deg, #000000, #004466, #008080, #333333);
+    background-size: 200% 200%;
+    animation: gradient-animation 6s ease infinite;
+    position: relative;
+}
+
+/* Contenedor */
+.container {
+    background-color: #f5f5f5;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    margin: auto;
+    text-align: center;
+}
+
+/* Título */
+h1 {
+    font-size: 2em;
+    color: #002222; /* Alto contraste con fondo claro */
+    margin-bottom: 20px;
+    text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5); /* Sombra para mayor claridad */
+}
+
+/* Etiquetas */
+label {
+    display: block;
+    margin: 10px 0 5px;
+    font-weight: bold;
+    color: #003333; /* Contraste medio-alto */
+}
+
+/* Inputs y selects */
+select, input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 2px solid #004444;
+    border-radius: 5px;
+    background-color: #e6f7f7;
+    color: #002222; /* Texto oscuro sobre fondo claro */
+    font-size: 1em;
+}
+
+/* Botones */
+button, .btn {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1em;
+    font-weight: bold;
+    color: #ffffff; /* Texto blanco sobre botón oscuro */
+    background-color: #007777;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); /* Sombra para mayor visibilidad */
+}
+
+button:hover, .btn:hover {
+    background-color: #005555;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Sombra más fuerte al pasar el cursor */
+}
+
+/* Párrafos */
+p {
+    font-size: 1.2em;
+    color: #002222; /* Texto oscuro y claro sobre fondos */
+    margin-bottom: 20px;
+}
+
+/* Animación del gradiente */
+@keyframes gradient-animation {
+    0% {
+        background-position: 0% 50%;
+    }
+    100% {
+        background-position: 100% 50%;
+>>>>>>> Mensaje
     }
 }

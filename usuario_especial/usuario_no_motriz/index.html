@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Recomendación de Medicamentos</title>
+<<<<<<< HEAD
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -56,22 +57,47 @@
         <h1>Sistema de Recomendación</h1>
         <form action="procesar.php" method="POST">
             <label for="sintoma">¿Qué síntoma tienes?</label>
+=======
+    <link rel="stylesheet" href="../../usuario_especial/usuario_no_motriz/estilos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-pills"></i> Sistema de Recomendación</h1>
+        <form action="procesar.php" method="POST">
+            <!-- Pregunta sobre el síntoma -->
+            <label for="sintoma"><i class="fas fa-heartbeat"></i> ¿Qué síntoma tienes?</label>
+>>>>>>> Mensaje
             <select name="sintoma" id="sintoma" required>
                 <option value="Uno">Dolor de cabeza</option>
                 <option value="Dos">Dolor de garganta</option>
                 <option value="Tres">Dolor de espalda</option>
             </select>
 
+<<<<<<< HEAD
             <label for="edad">¿Cuántos años tienes?</label>
             <input type="number" name="edad" id="edad" min="1" max="120" required>
 
             <label for="restricciones">¿Tienes restricciones médicas? (Sí o No)</label>
+=======
+            <!-- Pregunta sobre la edad -->
+            <label for="edad"><i class="fas fa-user"></i> ¿Cuántos años tienes?</label>
+            <input type="number" name="edad" id="edad" min="1" max="120" required>
+
+            <!-- Pregunta sobre restricciones médicas -->
+            <label for="restricciones"><i class="fas fa-notes-medical"></i> ¿Tienes restricciones médicas? (Sí o No)</label>
+>>>>>>> Mensaje
             <select name="restricciones" id="restricciones" required>
                 <option value="no">No</option>
                 <option value="sí">Sí</option>
             </select>
 
+<<<<<<< HEAD
             <button type="submit">Recomendar Medicamento</button>
+=======
+            <!-- Botón de enviar -->
+            <button type="submit"><i class="fas fa-search"></i> Recomendar Medicamento</button>
+>>>>>>> Mensaje
         </form>
     </div>
 </body>
