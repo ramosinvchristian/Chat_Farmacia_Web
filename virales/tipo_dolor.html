@@ -7,7 +7,7 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Estilos personalizados -->
-    <link rel="stylesheet" href="../../css/css1.css">
+    <link rel="stylesheet" href="../css/css1.css">
 </head>
 <body>
     <!-- Contenedor del fondo -->
@@ -16,7 +16,7 @@
         <h1 class="display-1 fw-bold text-light text-shadow">FARMACIA</h1>
         <h4 class="display-5 fw-bold text-light text-shadow">MARAVILLA</h4>
         <br>
-        <p class="text-light lead mb-5">--- ¿Tienes restricciones médicas? Seleccione "Sí" o diga "Uno" si tiene restricciones médicas o, selecciona "No" o diga "Dos" si no tiene restricciones médicas ---</p>
+        <p class="text-light lead mb-5"><p class="text-light lead mb-5">--- ¿Qué tipo de dolor tienes? ---</p>
         
         <!-- Contenedor de las imágenes -->
         <div class="container">
@@ -24,24 +24,15 @@
                 <!-- Imagen 1 -->
                 <div class="col-12 col-md-6 col-lg-4">
                     <div class="card border-0 shadow" id="opcion-promedio">
-                        <a href="medicamentos_con_restricciones.html" class="text-decoration-none">
-                            <img src="../../imagenes/si.jpeg" class="card-img-top rounded" alt="Cliente">
+                        <a href="resfriado/edad.html" class="text-decoration-none">
+                            <img src="../imagenes/resfriado.jpeg" class="card-img-top rounded" alt="Cliente">
                             <div class="card-body text-center">
-                                <h5 class="card-title fw-bold text-primary">Sí = 1</h5>
+                                <h5 class="card-title fw-bold text-primary">Resfriado común = 1</h5>
                             </div>
                         </a>
                     </div>
                 </div>
-                <div class="col-12 col-md-6 col-lg-4">
-                    <div class="card border-0 shadow" id="opcion-promedio">
-                        <a href="medicamentos_sin_restricciones.html" class="text-decoration-none">
-                            <img src="../../imagenes/no.jpeg" class="card-img-top rounded" alt="Cliente">
-                            <div class="card-body text-center">
-                                <h5 class="card-title fw-bold text-primary">No = 2</h5>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                
                 
                                 
             </div>
@@ -76,8 +67,7 @@
             recognition.start();
             
             // Hablamos inmediatamente
-            speakText("El reconocimiento de voz está activado. Seleccione Sí o diga Uno si tiene restricciones médicas, o, selecciona No o diga Dos si no tiene restricciones médicas");
-
+            speakText("El reconocimiento de voz está activado. Para 'Resfriado común' diga uno");
         };
 
         // Evento para procesar los comandos de voz
@@ -104,13 +94,10 @@
             // Selección del síntoma
             if (isVoiceActive) {
                 if (transcript.includes("uno")) {
-                    speakText("Has seleccionado Sí. Redirigiendo...");
-                    window.location.href = "medicamentos_con_restricciones.html";
-                } else if (transcript.includes("dos")) {
-                    speakText("Has seleccionado No. Redirigiendo...");
-                    window.location.href = "medicamentos_sin_restricciones.html";
-                } else {
-                    speakText("Vuelve a intentarlo. Seleccione Sí o diga Uno si tiene restricciones médicas, o, selecciona No o diga Dos si no tiene restricciones médicas");
+                    speakText("Has seleccionado Dermatitis. Redirigiendo...");
+                    window.location.href = "dermatitis/edad.html";
+
+                }else{speakText("Vuelve a intentarlo. Para 'Dermatitis' diga uno");
                 }
             }
         };
@@ -121,7 +108,7 @@
                 recognition.start();
                 isVoiceActive = true;
                 toggleVoiceBtn.textContent = "Desactivar voz";
-                speakText("El reconocimiento de voz está activado. Seleccione Sí o diga Uno si tiene restricciones médicas, o, selecciona No o diga Dos si no tiene restricciones médicas");
+                speakText("El reconocimiento de voz está activado. Para 'Resfriado común' diga uno");
             } else {
                 recognition.stop();
                 isVoiceActive = false;

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medicamentos</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        h1 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .medicamentos-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .medicamento {
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .medicamento:hover {
+            transform: scale(1.1);
+        }
+
+        .medicamento img {
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .medicamento p {
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Haz clic en una imagen para escuchar el nombre del medicamento</h1>
+
+    <div class="medicamentos-container">
+        <div class="medicamento" onclick="speakMedicamento('Paracetamol')">
+            <img src="../../imagenes/paracetamol.png" alt="Paracetamol">
+            <p>Paracetamol</p>
+        </div>
+        <div class="medicamento" onclick="speakMedicamento('Acetaminofén')">
+            <img src="../../imagenes/aceta.png" alt="Acetaminofén">
+            <p>Acetaminofén</p>
+        </div>
+        <div class="medicamento" onclick="speakMedicamento('Naproxeno')">
+            <img src="../../imagenes/napro.jpeg" alt="Naproxeno">
+            <p>Naproxeno</p>
+        </div>
+    </div>
+
+    <script>
+        function speakMedicamento(nombre) {
+            const utterance = new SpeechSynthesisUtterance(nombre);
+            utterance.lang = 'es-ES';
+            window.speechSynthesis.speak(utterance);
+        }
+    </script>
+
+</body>
+</html>
