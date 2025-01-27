@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FARMACIA</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Estilos personalizados -->
+    <link rel="stylesheet" href="../css/css1.css">
+</head>
+<body>
+    <!-- Contenedor del fondo -->
+    <div class="background d-flex flex-column justify-content-center align-items-center text-center">
+        <!-- Título -->
+        <h1 class="display-1 fw-bold text-light text-shadow">FARMACIA</h1>
+        <h4 class="display-5 fw-bold text-light text-shadow">MARAVILLA</h4>
+        <br>
+        <p class="text-light lead mb-5"><p class="text-light lead mb-5">--- ¿Qué tipo de dolor tienes? ---</p>
+        
+        <!-- Contenedor de las imágenes -->
+        <div class="container">
+            <div class="row justify-content-center g-4">
+                <!-- Imagen 1 -->
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card border-0 shadow" id="opcion-promedio">
+                        <a href="espalda/edad.html" class="text-decoration-none">
+                            <img src="../imagenes/espalda.jpeg" class="card-img-top rounded" alt="Cliente">
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold text-primary">Dolor de Espalda = 1</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="col-12 col-md-6 col-lg-4">
+                    <div class="card border-0 shadow" id="opcion-promedio">
+                        <a href="cabeza/edad.html" class="text-decoration-none">
+                            <img src="../imagenes/cabeza.jpeg" class="card-img-top rounded" alt="Cliente">
+                            <div class="card-body text-center">
+                                <h5 class="card-title fw-bold text-primary">Dolor de cabeza = 2</h5>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                
+                                
+            </div>
+        </div>
+        
+        <!-- Botón para activar/desactivar la voz -->
+        <button id="toggle-voice" class="btn btn-primary mt-4">Desactivar voz</button>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Scripts de voz -->
+    <script>
+        const recognition = new (window.SpeechRecognition || window.webkitSpeechRecognition)();
+        recognition.lang = 'es-ES';
+        recognition.continuous = true;
+
+        const toggleVoiceBtn = document.getElementById("toggle-voice");
+        let isVoiceActive = true; // El reconocimiento de voz está activado al inicio
+
+        // Función para leer texto en voz alta
+        function speakText(text) {
+            const utterance = new SpeechSynthesisUtterance(text);
+            utterance.lang = "es-ES";
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Al cargar la página, activar voz y leer opciones
+        window.onload = () => {
+            // Inicializamos el reconocimiento de voz para que esté listo desde el inicio
+            recognition.start();
+            
+            // Hablamos inmediatamente
+            speakText("El reconocimiento de voz está activado. Para 'Dolores de espalda' diga uno, para 'Dolores de cabeza' diga dos");
+        };
+
+        // Evento para procesar los comandos de voz
+        recognition.onresult = (event) => {
+            const transcript = event.results[event.results.length - 1][0].transcript.toLowerCase();
+
+            // Comandos para activar o desactivar la voz
+            if (transcript.includes("activar voz")) {
+                if (!isVoiceActive) {
+                    recognition.start();
+                    isVoiceActive = true;
+                    toggleVoiceBtn.textContent = "Desactivar voz";
+                    speakText("El reconocimiento de voz está activado.");
+                }
+            } else if (transcript.includes("desactivar voz")) {
+                if (isVoiceActive) {
+                    recognition.stop();
+                    isVoiceActive = false;
+                    toggleVoiceBtn.textContent = "Activar voz";
+                    speakText("El reconocimiento de voz está desactivado.");
+                }
+            }
+
+            // Selección del síntoma
+            if (isVoiceActive) {
+                if (transcript.includes("uno")) {
+                    speakText("Has seleccionado Dolor de espalda. Redirigiendo...");
+                    window.location.href = "espalda/edad.html";
+                } else if (transcript.includes("dos")) {
+                    speakText("Has seleccionado Dolor de cabeza. Redirigiendo...");
+                    window.location.href = "cabeza/edad.html";
+                    speakText("Vuelve a intentarlo. Para 'Dolores de espalda' diga uno, para 'Dolores de cabeza' diga dos");
+                }
+            }
+        };
+
+        // Función para alternar el reconocimiento de voz desde el botón
+        toggleVoiceBtn.addEventListener("click", () => {
+            if (!isVoiceActive) {
+                recognition.start();
+                isVoiceActive = true;
+                toggleVoiceBtn.textContent = "Desactivar voz";
+                speakText("El reconocimiento de voz está activado. Para 'Dolores de espalda' diga uno, para 'Dolores de cabeza' diga dos");
+            } else {
+                recognition.stop();
+                isVoiceActive = false;
+                toggleVoiceBtn.textContent = "Activar voz";
+                speakText("El reconocimiento de voz está desactivado.");
+            }
+        });
+    </script>
+</body>
+</html>
